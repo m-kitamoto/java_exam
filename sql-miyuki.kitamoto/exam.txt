@@ -1,0 +1,50 @@
+問１
+INSERT INTO items(id, category_id, name, price)
+VALUES (13, 1, '鰯', 150),
+(14, 2, '羊', 650);
+
+問２
+UPDATE items
+SET price = price * 0.9;
+
+問３
+DELETE
+FROM employees
+WHERE end_date <= '2013-03-31';
+
+問４
+SELECT id, name, email, start_date, end_date
+FROM employees
+WHERE end_date IS NULL
+ORDER BY start_date ASC LIMIT 1;
+
+問５
+SELECT r.name AS region, p.name AS prefecture
+FROM regions AS r
+RIGHT OUTER JOIN prefectures AS p
+ON r.code = p.region_code
+ORDER BY r.code;
+
+問６
+SELECT sum(population) AS population
+FROM populations;
+
+問７
+SELECT pr.name AS prefecture, g.name AS gender, po.population AS population
+FROM populations AS po
+LEFT OUTER JOIN genders AS g
+ON po.gender_code = g.code
+LEFT OUTER JOIN prefectures AS pr
+ON po.prefecture_code = pr.code
+WHERE pr.region_code = '80'
+ORDER BY pr.code;
+
+問８
+SELECT *
+FROM populations AS po
+LEFT OUTER JOIN prefectures AS pr
+ON po.prefecture_code = pr.code
+LEFT OUTER JOIN regions AS re
+ON pr.region_code = re.code
+LEFT OUTER JOIN generations AS gen
+ON po.generation_code = gen.code;
