@@ -41,5 +41,11 @@ public class UserResponse {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "UserResponse [id=" + id + ", name=" + name + ", email=" + email + "]";
+    }
+
+    
     
 }

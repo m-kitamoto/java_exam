@@ -77,7 +77,7 @@ public class UserApiController {
 
     // PUTメソッドによるユーザー更新（PUT /users/{id}）
     // 引数や戻り値は適宜修正してください
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     public ResponseEntity<UserResponse> updateUser(@PathVariable Integer id, @Valid @RequestBody UserRequest request) {
         User existuser = userService.findById(id);
         if (existuser == null) {
